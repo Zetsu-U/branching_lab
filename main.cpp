@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 
 using std::string;
 using std::vector;
@@ -25,9 +26,21 @@ int main() {
 }
 
 
-vector<string> readLines(const string&) {
-    return {};
+vector<string> readLines(const string& path) {
+    std::ifstream in(path);
+    vector<string> lines;
+
+    if (!in.is_open()) {
+        return lines;
+    }
+
+    string s;
+    while (std::getline(in, s)) {
+        lines.push_back(s);
+    }
+    return lines;
 }
+
 
 void printLines(const vector<string>&) {
 }
