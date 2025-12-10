@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 
 using std::string;
 using std::vector;
@@ -29,7 +30,10 @@ vector<string> readLines(const string&) {
     return {};
 }
 
-void printLines(const vector<string>&) {
+void printLines(const vector<string>& lines) {
+    for (const auto& s : lines) {
+        std::cout << s << '\n';
+    }
 }
 
 void writeLines(const vector<string>&, const string&) {
